@@ -1,0 +1,33 @@
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            # ... checkout and install dependencies
+
+            - name: AI Survey Analysis
+              run: |
+                  marimo export html-wasm '01_data analysis.py' -o app --mode run --sandbox
+
+            - name: 📦 Upload Pages Artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: app
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        permissions:
+            pages: write
+            id-token: write
+
+        steps:
+            - name: 🌐 Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
+              with:
+                  artifact_name: github-pages
