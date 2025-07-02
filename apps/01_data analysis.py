@@ -8,6 +8,8 @@
 #     "openpyxl==3.1.5",
 #     "pandas==2.3.0",
 #     "plotly==6.2.0",
+#     "setuptools==80.9.0",
+#     "wheels==0.45.1",
 #     "spacy==3.8.7",
 #     "wordcloud==1.9.4",
 # ]
