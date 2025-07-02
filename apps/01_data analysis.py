@@ -57,9 +57,9 @@ def _():
 
 @app.cell
 def _(pd):
-    data = pd.read_excel("data\\survey_data.xlsx")
-    countries = pd.read_csv("data\\iso-country-codes.csv")
-    clusters = pd.read_csv("data\\role_clusters.csv")
+    data = pd.read_excel("public/survey_data.xlsx")
+    countries = pd.read_csv("public/iso-country-codes.csv")
+    clusters = pd.read_csv("public/role_clusters.csv")
     return clusters, countries, data
 
 
@@ -575,7 +575,7 @@ def _(mo):
 
 @app.cell
 def _(pd):
-    known_initiatives = pd.read_csv("data\\known_initiatives.csv")
+    known_initiatives = pd.read_csv("public/known_initiatives.csv")
     # known_initiatives
     return (known_initiatives,)
 
